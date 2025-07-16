@@ -7,13 +7,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
+    flex-direction: column;
 }
 
 .container {
     max-width: 600px;
     padding: 20px;
+    width: 90%;
 }
 
 h1 {
@@ -21,16 +23,31 @@ h1 {
     margin-bottom: 10px;
 }
 
+p {
+    font-size: 1.2em;
+}
+
 #countdown {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
     margin: 20px 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+#countdown::-webkit-scrollbar {
+    display: none;
 }
 
 #countdown div {
     background: #222;
-    padding: 10px 15px;
+    padding: 8px 10px;
     border-radius: 8px;
+    min-width: 60px;
+    flex: 0 0 auto;
 }
 
 #countdown span {
@@ -44,18 +61,45 @@ h1 {
     color: #aaa;
 }
 
+.invite-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1em;
+    background-color: grey;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.invite-button:hover {
+    background-color: #e05500;
+}
+
 .footer {
     font-size: 1.1em;
     color: #ccc;
+    margin-top: 30px;
 }
 
-.form-container {
-    margin-top: 40px;
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-}
+/* Mobile tweaks */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.8em;
+    }
 
-.form-container h2 {
-    margin-bottom: 10px;
+    p {
+        font-size: 1em;
+    }
+
+    #countdown div {
+        min-width: 55px;
+        padding: 6px 8px;
+    }
+
+    .invite-button {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
 }
